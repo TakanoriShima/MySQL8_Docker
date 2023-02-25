@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mysql8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: m%EL78rT
+      MYSQL_USER: repuser
+      MYSQL_PASSWORD: reppass
+      MYSQL_DATABASE: daily_report_system
+      TZ: "Asia/Tokyo"
+    ports:
+      - 3306:3306
+    volumes:
+      - data-volume:/var/lib/mysql
+
+volumes:
+ data-volume:
